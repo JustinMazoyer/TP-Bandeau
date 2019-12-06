@@ -5,10 +5,32 @@
  */
 package bandeau;
 
+import java.util.*;
+
 /**
  *
  * @author ngoetsch
  */
 public class Scenario {
-    private final Bandeau Bandeau = new Bandeau();
+
+    public String nom;
+    public List<Liste_effet> effets = new LinkedList<>();
+
+    public Scenario(String nom) {
+        this.nom = nom;
+    }
+
+    public void ajoutEffets(Effet effet, int repetition) {
+        Liste_effet nouvellelisteffet = new Liste_effet(this, effet, repetition);
+        effets.add(nouvellelisteffet);
+    }
+
+    public void jouer(Bandeau bandeau) {
+        for (Liste_effet e : effets) {
+            for (int i = 0; i < e.getRepetition(); i++) {
+                e.getEffet().jouerEffet(bandeau);
+            }
+        }
+
+    }
 }

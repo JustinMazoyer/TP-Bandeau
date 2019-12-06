@@ -7,17 +7,18 @@ package bandeau;
 
 import java.awt.Color;
 import java.awt.Font;
+
 /**
  *
  * @author ngoetsch
  */
-public class Rotation extends Scenario {
-    
-    public void Rotation (Bandeau bandeau){
+public class Rotation extends Effet {
+
+    public void jouerEffet(Bandeau bandeau) {
         bandeau.setMessage("Je fais 2 tours");
-                for (int i = 0; i <= 50; i++) {
-                    bandeau.setRotation(2*Math.PI*i / 100);
-                    bandeau.sleep(100);
+        for (int i = 0; i <= 50; i++) {
+            bandeau.setRotation(2 * Math.PI * i / 100);
+            bandeau.sleep(100);
         };
     }
 }
